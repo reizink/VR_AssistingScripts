@@ -3,20 +3,22 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ButtonFunctions : BoolShift
+public class ButtonFunctions : MonoBehaviour
 {
     //〔〕︿﹀︹︺〈〉•⋅ ⋗⋖ ⊔⊓⊏⊐  ∧∨ V̇ v̇ ⟑ • □⊡
     // ⟓ ⟔ ⦑ ⦒  「」 ⌜⌝⌞⌟
     // ⋗⋖ ⊔⊓⊏⊐ ⟑ ⩒
 
-    //public bool shiftDot = false;
     public Text textScreen;
-    public Color startColor;
+    public GameObject shiftObject;
+
+    private Color startColor;
+    private bool shiftDot = false;
 
 
     private void Start()
     {
-        startColor = gameObject.GetComponent<Renderer>().material.color;
+        startColor = shiftObject.GetComponent<Renderer>().material.color;
         textScreen.text = "";
     }
 
@@ -25,13 +27,18 @@ public class ButtonFunctions : BoolShift
         if (shiftDot == true)
         {
             shiftDot = false;
-            gameObject.GetComponent<Renderer>().material.color = startColor;
+            shiftObject.GetComponent<Renderer>().material.color = startColor;
         }
         else
         {
             shiftDot = true;
-            gameObject.GetComponent<Renderer>().material.color = Color.blue;
+            shiftObject.GetComponent<Renderer>().material.color = Color.blue;
         }
+    }
+
+    public void Clear()
+    {
+        textScreen.text = "";
     }
 
     public void LeftBracket()
@@ -40,6 +47,7 @@ public class ButtonFunctions : BoolShift
         {
             textScreen.text = textScreen.text + "•⊐";
             shiftDot = false;
+            shiftObject.GetComponent<Renderer>().material.color = startColor;
         }
         else
         {
@@ -53,6 +61,7 @@ public class ButtonFunctions : BoolShift
         {
             textScreen.text = textScreen.text + "⊏•";
             shiftDot = false;
+            shiftObject.GetComponent<Renderer>().material.color = startColor;
         }
         else
         {
@@ -66,6 +75,7 @@ public class ButtonFunctions : BoolShift
         {
             textScreen.text = textScreen.text + "⊔•"; //
             shiftDot = false;
+            shiftObject.GetComponent<Renderer>().material.color = startColor;
         }
         else
         {
@@ -79,6 +89,7 @@ public class ButtonFunctions : BoolShift
         {
             textScreen.text = textScreen.text + "⊓•";
             shiftDot = false;
+            shiftObject.GetComponent<Renderer>().material.color = startColor;
         }
         else
         {
@@ -92,6 +103,7 @@ public class ButtonFunctions : BoolShift
         {
             textScreen.text = textScreen.text + "⊡";
             shiftDot = false;
+            shiftObject.GetComponent<Renderer>().material.color = startColor;
         }
         else
         {
@@ -105,6 +117,7 @@ public class ButtonFunctions : BoolShift
         {
             textScreen.text = textScreen.text + "•⌟";
             shiftDot = false;
+            shiftObject.GetComponent<Renderer>().material.color = startColor;
         }
         else
         {
@@ -118,6 +131,7 @@ public class ButtonFunctions : BoolShift
         {
             textScreen.text = textScreen.text + "⌞•";
             shiftDot = false;
+            shiftObject.GetComponent<Renderer>().material.color = startColor;
         }
         else
         {
@@ -131,6 +145,7 @@ public class ButtonFunctions : BoolShift
         {
             textScreen.text = textScreen.text + "•⌝";
             shiftDot = false;
+            shiftObject.GetComponent<Renderer>().material.color = startColor;
         }
         else
         {
@@ -144,6 +159,7 @@ public class ButtonFunctions : BoolShift
         {
             textScreen.text = textScreen.text + "⌜•";
             shiftDot = false;
+            shiftObject.GetComponent<Renderer>().material.color = startColor;
         }
         else
         {
@@ -155,8 +171,9 @@ public class ButtonFunctions : BoolShift
     {
         if (shiftDot == true)
         {
-            textScreen.text = textScreen.text + "⩒";
+            textScreen.text = textScreen.text + "∨•";    //  \•/
             shiftDot = false;
+            shiftObject.GetComponent<Renderer>().material.color = startColor;
         }
         else
         {
@@ -168,8 +185,9 @@ public class ButtonFunctions : BoolShift
     {
         if (shiftDot == true)
         {
-            textScreen.text = textScreen.text + "⟑";
+            textScreen.text = textScreen.text + "∧•";
             shiftDot = false;
+            shiftObject.GetComponent<Renderer>().material.color = startColor;
         }
         else
         {
@@ -181,8 +199,9 @@ public class ButtonFunctions : BoolShift
     {
         if (shiftDot == true)
         {
-            textScreen.text = textScreen.text + "⦒";
+            textScreen.text = textScreen.text + "•〉"; //⦒
             shiftDot = false;
+            shiftObject.GetComponent<Renderer>().material.color = startColor;
         }
         else
         {
@@ -194,8 +213,9 @@ public class ButtonFunctions : BoolShift
     {
         if (shiftDot == true)
         {
-            textScreen.text = textScreen.text + "⦑";
+            textScreen.text = textScreen.text + "〈•"; //⦑
             shiftDot = false;
+            shiftObject.GetComponent<Renderer>().material.color = startColor;
         }
         else
         {
